@@ -1,0 +1,45 @@
+
+.sideBar {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: #8a2ab2;
+  border: 2px solid #5900b8;
+  height:fit-content;
+  min-height: 500px;
+}
+
+.bar {
+  list-style: none;
+  padding: 0;
+}
+.bar_item {
+  margin-top: 20px;
+  border: 1px solid white;
+  background-color: darkseagreen;
+
+}
+
+.bar_item_link {
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  width: 100%;
+  display: inline-block;
+
+  text-align: center;
+}
+
+.activeLink{
+  color:darkmagenta;
+  font-weight: 900;
+  letter-spacing: 5px;
+  transition: 0.2s;
+}
+
+.OnlineFriendsList{
+  display: inline-block;  
+  margin-top: 60px;
+  margin-left: 3px;
+}

@@ -1,15 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
+import store from "./State.js";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let RerenderAll = (state) => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <App
+        appState={state}
+        AddMessage={AddMessage}
+        AddPost={AddPost}
+        ChangePostBuffer={ChangePostBuffer}
+        ChangeMessageBuffer={ChangeMessageBuffer}
+      />
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+};
+
+RerenderAll(state);
+subscribe(RerenderAll);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
