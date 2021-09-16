@@ -75,7 +75,7 @@ let store = {
     },
   },
 
-  GetState(){
+  GetState() {
     return this._state;
   },
 
@@ -86,41 +86,38 @@ let store = {
         messageText: this._state.Dialogs_Messages_Data.MessageTextBuffer,
         sender: true,
       };
-      ChangeMessageBuffer("");
+      this.ChangeMessageBuffer("");
       this._state.Dialogs_Messages_Data.MessagesData.push(newMessage);
-      RerenderAll(this._state);
+      this.RerenderAll(this._state);
     }
   },
 
-  AddPost(){
+  AddPost() {
     if (this._state.Profile_Data.PostTextBuffer != "") {
       let newPost = {
         id: this._state.Profile_Data.postsData.length + 1,
         text: this._state.Profile_Data.PostTextBuffer,
       };
-  
+
       this._state.Profile_Data.postsData.push(newPost);
-      ChangePostBuffer("");
-      RerenderAll(this._state);
+      this.ChangePostBuffer("");
+      this.RerenderAll(this._state);
     }
   },
 
-  ChangePostBuffer(text){
+  ChangePostBuffer(text) {
     this._state.Profile_Data.PostTextBuffer = text;
-    RerenderAll(this._state);
+    this.RerenderAll(this._state);
   },
-  ChangeMessageBuffer(text){
+  ChangeMessageBuffer(text) {
     this._state.Dialogs_Messages_Data.MessageTextBuffer = text;
-    RerenderAll(this._state);
+    this.RerenderAll(this._state);
   },
 
-  subscribe(observer){
-    RerenderAll = observer;
+  subscribe(observer) {
+    this.RerenderAll = observer;
   },
-  RerenderAll(){},
+  RerenderAll() {},
 };
-
-
-
 
 export default store;
