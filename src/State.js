@@ -74,11 +74,9 @@ let store = {
       ],
     },
   },
-
   GetState() {
     return this._state;
   },
-
   AddMessage() {
     if (this._state.Dialogs_Messages_Data.MessageTextBuffer != "") {
       let newMessage = {
@@ -91,7 +89,6 @@ let store = {
       this.RerenderAll(this._state);
     }
   },
-
   AddPost() {
     if (this._state.Profile_Data.PostTextBuffer != "") {
       let newPost = {
@@ -104,7 +101,6 @@ let store = {
       this.RerenderAll(this._state);
     }
   },
-
   ChangePostBuffer(text) {
     this._state.Profile_Data.PostTextBuffer = text;
     this.RerenderAll(this._state);
@@ -113,7 +109,6 @@ let store = {
     this._state.Dialogs_Messages_Data.MessageTextBuffer = text;
     this.RerenderAll(this._state);
   },
-
   subscribe(observer) {
     this.RerenderAll = observer;
   },
