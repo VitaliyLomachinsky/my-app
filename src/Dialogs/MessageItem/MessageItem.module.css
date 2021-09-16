@@ -1,0 +1,33 @@
+.item_rows{
+  display: block;
+  width: auto;  
+  height: 50px;
+  
+}
+
+.item_my{
+  background-color:#6D87D6;
+  border-radius: 1px solid red;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 8px;
+  color:#FFAE00;
+  width: auto;
+  float: right;
+  font-size: 20px;
+}
+
+
+.item_other{
+  background-color:#6D87D6;
+  border-radius: 1px solid red;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 8px;
+  color:#FFAE00;
+  width: auto;
+  float: left;
+  font-size: 20px;
+}

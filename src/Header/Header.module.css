@@ -1,0 +1,15 @@
+.header {
+  background-color: #ffe4c4;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 0;
+  grid-row-end: 1;
+  height: 100px;
+  border: 2px solid #c10ff5;
+}
+
+.header_img {
+  margin-top: -30px;
+  height: 150px;
+  width: 150px;
+}

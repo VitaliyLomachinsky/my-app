@@ -1,0 +1,31 @@
+.My_posts {
+  width: 1000px;
+  height: 100px;
+  display: flex;
+
+  align-items: center;
+  margin: 0 auto;
+}
+.My_posts_textarea {
+  width: 900px;
+  height: 100px;
+  resize: none;
+  font-size: 20px;
+}
+.My_posts_textarea_sumbit_btn {
+  width: 140px;
+  height: 40px;
+  background-color: teal;
+  color: white;
+  border: 1px solid tomato;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.all_posts {
+  width: 1000px;
+  margin: 0 auto;
+}

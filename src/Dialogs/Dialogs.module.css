@@ -1,0 +1,80 @@
+.Dialogs{
+  display: grid;
+  grid-template-columns: 320px auto;
+  grid-template-rows: 600px;
+  grid-gap: 5px;
+  grid-template-areas:
+  "a b ";
+
+
+}
+
+.All_Dialogs{
+  grid-area: a;
+  background-color: orchid;
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.Current_Dialogs{
+  grid-area: b;
+  background-color:peru;
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;   
+}
+
+.Current_Dialogs_Active_Zone{
+  border-radius: 5px;
+  height: 500px;
+  width: 740px;
+  background-color:cornsilk;
+  margin: 0 auto;
+ 
+}
+
+.Current_Dialogs_Active_Zone_Inside{
+  padding: 20px;
+  overflow:auto;
+
+  height: 460px;
+}
+.MessageBox_wrapper{
+  width: auto;
+  
+  width:600px;
+  bottom: 10px;
+  height: auto;
+  margin: 0 auto;
+  
+}
+
+.MessageBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.MessageBox textarea{
+  width: 500px;
+  height: 50px;
+  font-size: 15px;
+}
+
+.MessageBox button{
+  margin-left: 20px;
+  width: 70px;
+  height: 30px;
+  background-color: teal;
+  color: white;
+  border: 1px solid blueviolet;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  cursor: pointer;
+}
