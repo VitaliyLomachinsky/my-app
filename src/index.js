@@ -10,18 +10,18 @@ let RerenderAll = (state) => {
     <React.StrictMode>
       <App
         appState={state}
-        AddMessage={AddMessage}
-        AddPost={AddPost}
-        ChangePostBuffer={ChangePostBuffer}
-        ChangeMessageBuffer={ChangeMessageBuffer}
+        AddMessage={store.AddMessage.bind(store)}
+        AddPost={store.AddPost.bind(store)}
+        ChangePostBuffer={store.ChangePostBuffer.bind(store)}
+        ChangeMessageBuffer={store.ChangeMessageBuffer.bind(store)}
       />
     </React.StrictMode>,
     document.getElementById("root")
   );
 };
 
-RerenderAll(state);
-subscribe(RerenderAll);
+RerenderAll(store.GetState());
+store.subscribe(RerenderAll);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
