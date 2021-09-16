@@ -10,16 +10,15 @@ const MyPost = (props) => {
   let NewPost = React.createRef();
 
   let AddPost = () => {
-  
     let text = NewPost.current.value;
-    props.AddPost(text);
+    props.dispatch({ type: "AddPost", text: text });
   };
 
-  let OnChangePost = () =>{
-    let text =NewPost.current.value;
-    props.ChangePostBuffer(text);
-  }
-  
+  let OnChangePost = () => {
+    let text = NewPost.current.value;
+    props.dispatch({ type: "ChangePostBuffer", text: text });
+  };
+
   return (
     <div className={classes.post}>
       <h2>My posts</h2>

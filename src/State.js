@@ -77,19 +77,19 @@ let store = {
   GetState() {
     return this._state;
   },
-  AddMessage() {
+  _AddMessage() {
     if (this._state.Dialogs_Messages_Data.MessageTextBuffer != "") {
       let newMessage = {
         id: this._state.Dialogs_Messages_Data.MessagesData.length + 1,
         messageText: this._state.Dialogs_Messages_Data.MessageTextBuffer,
         sender: true,
       };
-      this.ChangeMessageBuffer("");
+      this._ChangeMessageBuffer("");
       this._state.Dialogs_Messages_Data.MessagesData.push(newMessage);
       this.RerenderAll(this._state);
     }
   },
-  AddPost() {
+  _AddPost() {
     if (this._state.Profile_Data.PostTextBuffer != "") {
       let newPost = {
         id: this._state.Profile_Data.postsData.length + 1,
@@ -97,21 +97,42 @@ let store = {
       };
 
       this._state.Profile_Data.postsData.push(newPost);
-      this.ChangePostBuffer("");
+      this._ChangePostBuffer("");
       this.RerenderAll(this._state);
     }
   },
-  ChangePostBuffer(text) {
+  _ChangePostBuffer(text) {
     this._state.Profile_Data.PostTextBuffer = text;
     this.RerenderAll(this._state);
   },
-  ChangeMessageBuffer(text) {
+  _ChangeMessageBuffer(text) {
     this._state.Dialogs_Messages_Data.MessageTextBuffer = text;
     this.RerenderAll(this._state);
   },
   subscribe(observer) {
     this.RerenderAll = observer;
   },
+
+  dispatch(action){
+    switch(action.type){
+      case "AddMessage":
+        this._AddMessage();
+        break;
+
+      case "AddPost":
+        this._AddPost();
+         break;   
+
+      case "ChangePostBuffer":
+        this._ChangePostBuffer(action.text);
+         break;
+
+      case "ChangeMessageBuffer":
+        this._ChangeMessageBuffer(action.text);
+         break;    
+    }
+  },
+
   RerenderAll() {},
 };
 

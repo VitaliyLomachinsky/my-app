@@ -8,13 +8,13 @@ const Dialogs = (props) => {
   let submitMessage = React.createRef();
   let AddMessage = () => {
     let text = submitMessage.current.value;
-    props.AddMessage(text);
+    props.dispatch({type:"AddMessage",text:text});
   };
 
   let ChangeMessage = () =>{
     let text = submitMessage.current.value;
     debugger;
-    props.ChangeMessageBuffer(text);
+    props.dispatch({type:"ChangeMessageBuffer",text:text});
   }
 
   let DialogsDataNew = props.dialogsData.DialogsData.map((dialog) => (

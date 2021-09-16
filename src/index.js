@@ -10,10 +10,7 @@ let RerenderAll = (state) => {
     <React.StrictMode>
       <App
         appState={state}
-        AddMessage={store.AddMessage.bind(store)}
-        AddPost={store.AddPost.bind(store)}
-        ChangePostBuffer={store.ChangePostBuffer.bind(store)}
-        ChangeMessageBuffer={store.ChangeMessageBuffer.bind(store)}
+        dispatch={store.dispatch.bind(store)}
       />
     </React.StrictMode>,
     document.getElementById("root")

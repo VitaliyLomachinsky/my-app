@@ -19,8 +19,7 @@ const App = (props) => {
             render={() => (
               <Profile
                 Profile_Data={props.appState.Profile_Data}
-                AddPost={props.AddPost}
-                ChangePostBuffer={props.ChangePostBuffer}
+                dispatch={props.dispatch}
               />
             )}
           />
@@ -30,8 +29,7 @@ const App = (props) => {
             render={() => (
               <Dialogs
                 dialogsData={props.appState.Dialogs_Messages_Data}
-                AddMessage={props.AddMessage}
-                ChangeMessageBuffer={props.ChangeMessageBuffer}
+                dispatch={props.dispatch}
               />
             )}
           />
