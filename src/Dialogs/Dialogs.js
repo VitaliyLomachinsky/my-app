@@ -1,21 +1,22 @@
-import s from "./Dialogs.module.css";
-import DialogItem from "./DialogItem/DialogItem";
-import MessageItem from "./MessageItem/MessageItem";
 import React from "react";
+import { AddMessageActionCreator,ChangeMessageBufferActionCreator } from "../State";
+import DialogItem from "./DialogItem/DialogItem";
+import s from "./Dialogs.module.css";
+import MessageItem from "./MessageItem/MessageItem";
+
+
 
 const Dialogs = (props) => {
-  /*Map*/
   let submitMessage = React.createRef();
+
   let AddMessage = () => {
-    let text = submitMessage.current.value;
-    props.dispatch({type:"AddMessage",text:text});
+    props.dispatch(AddMessageActionCreator());
   };
 
-  let ChangeMessage = () =>{
+  let ChangeMessage = () => {
     let text = submitMessage.current.value;
-    debugger;
-    props.dispatch({type:"ChangeMessageBuffer",text:text});
-  }
+    props.dispatch(ChangeMessageBufferActionCreator(text));
+  };
 
   let DialogsDataNew = props.dialogsData.DialogsData.map((dialog) => (
     <DialogItem
@@ -44,7 +45,11 @@ const Dialogs = (props) => {
         </div>
         <div className={s.MessageBox_wrapper}>
           <div className={s.MessageBox}>
-            <textarea ref={submitMessage} onChange={ChangeMessage} value={props.dialogsData.MessageTextBuffer}></textarea>
+            <textarea
+              ref={submitMessage}
+              onChange={ChangeMessage}
+              value={props.dialogsData.MessageTextBuffer}
+            ></textarea>
             <button onClick={AddMessage}>Submit</button>
           </div>
         </div>

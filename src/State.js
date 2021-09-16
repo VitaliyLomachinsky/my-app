@@ -1,3 +1,9 @@
+const ADD_POST ="AddPost";
+const ADD_MESSAGE="AddMessage";
+const CHANGE_POST_BUFFER ="ChangePostBuffer";
+const CHANGE_MESSAGE_BUFFER ="ChangeMessageBuffer";
+
+
 let store = {
   _state: {
     Dialogs_Messages_Data: {
@@ -115,19 +121,19 @@ let store = {
 
   dispatch(action){
     switch(action.type){
-      case "AddMessage":
+      case ADD_MESSAGE:
         this._AddMessage();
         break;
 
-      case "AddPost":
+      case ADD_POST:
         this._AddPost();
          break;   
 
-      case "ChangePostBuffer":
+      case CHANGE_POST_BUFFER:
         this._ChangePostBuffer(action.text);
          break;
 
-      case "ChangeMessageBuffer":
+      case CHANGE_MESSAGE_BUFFER:
         this._ChangeMessageBuffer(action.text);
          break;    
     }
@@ -135,5 +141,12 @@ let store = {
 
   RerenderAll() {},
 };
+
+export const AddMessageActionCreator = () => ({type: ADD_MESSAGE})
+export const ChangeMessageBufferActionCreator = (text) => ({type: CHANGE_MESSAGE_BUFFER, text: text,});
+export const AddPostActionCreator = () => ({type: ADD_POST})
+export const ChangePostBufferActionCreator = (text) => ({type:CHANGE_POST_BUFFER,text: text});
+
+
 
 export default store;

@@ -1,22 +1,21 @@
 import Post from "./Post/Post";
 import classes from "./MyPost.module.css";
 import React from "react";
+import { AddPostActionCreator, ChangePostBufferActionCreator } from "../../State";
 
 const MyPost = (props) => {
   let postsDataNew = props.Profile_Data.postsData.map((post) => (
     <Post content={post.text} id={post.id} />
   ));
-
   let NewPost = React.createRef();
 
   let AddPost = () => {
-    let text = NewPost.current.value;
-    props.dispatch({ type: "AddPost", text: text });
+    props.dispatch(AddPostActionCreator());
   };
 
   let OnChangePost = () => {
     let text = NewPost.current.value;
-    props.dispatch({ type: "ChangePostBuffer", text: text });
+    props.dispatch(ChangePostBufferActionCreator(text));
   };
 
   return (
