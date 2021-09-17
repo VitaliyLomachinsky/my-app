@@ -4,14 +4,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.js";
 import store from "./State.js";
+import { BrowserRouter } from "react-router-dom";
 
 let RerenderAll = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App
-        appState={state}
-        dispatch={store.dispatch.bind(store)}
-      />
+      <BrowserRouter>
+        <App appState={state} dispatch={store.dispatch.bind(store)} />
+      </BrowserRouter>
+      ;
     </React.StrictMode>,
     document.getElementById("root")
   );
