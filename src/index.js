@@ -3,7 +3,7 @@ import reportWebVitals from "./reportWebVitals";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.js";
-import store from "./State.js";
+import store from "./Redux/State.js";
 import { BrowserRouter } from "react-router-dom";
 
 let RerenderAll = (state) => {

@@ -1,8 +1,5 @@
-const ADD_POST ="AddPost";
-const ADD_MESSAGE="AddMessage";
-const CHANGE_POST_BUFFER ="ChangePostBuffer";
-const CHANGE_MESSAGE_BUFFER ="ChangeMessageBuffer";
-
+import Profile_reducer from "./Profile_reducer";
+import Dialogs_reducer from "./Dialogs_reducer";
 
 let store = {
   _state: {
@@ -83,70 +80,26 @@ let store = {
   GetState() {
     return this._state;
   },
-  _AddMessage() {
-    if (this._state.Dialogs_Messages_Data.MessageTextBuffer != "") {
-      let newMessage = {
-        id: this._state.Dialogs_Messages_Data.MessagesData.length + 1,
-        messageText: this._state.Dialogs_Messages_Data.MessageTextBuffer,
-        sender: true,
-      };
-      this._ChangeMessageBuffer("");
-      this._state.Dialogs_Messages_Data.MessagesData.push(newMessage);
-      this.RerenderAll(this._state);
-    }
-  },
-  _AddPost() {
-    if (this._state.Profile_Data.PostTextBuffer != "") {
-      let newPost = {
-        id: this._state.Profile_Data.postsData.length + 1,
-        text: this._state.Profile_Data.PostTextBuffer,
-      };
 
-      this._state.Profile_Data.postsData.push(newPost);
-      this._ChangePostBuffer("");
-      this.RerenderAll(this._state);
-    }
-  },
-  _ChangePostBuffer(text) {
-    this._state.Profile_Data.PostTextBuffer = text;
-    this.RerenderAll(this._state);
-  },
-  _ChangeMessageBuffer(text) {
-    this._state.Dialogs_Messages_Data.MessageTextBuffer = text;
-    this.RerenderAll(this._state);
-  },
   subscribe(observer) {
     this.RerenderAll = observer;
   },
 
-  dispatch(action){
-    switch(action.type){
-      case ADD_MESSAGE:
-        this._AddMessage();
-        break;
+  dispatch(action) {
+    this._state.Profile_Data = Profile_reducer(
+      this._state.Profile_Data,
+      action
+    );
 
-      case ADD_POST:
-        this._AddPost();
-         break;   
+    this._state.Dialogs_Messages_Data = Dialogs_reducer(
+      this._state.Dialogs_Messages_Data,
+      action
+    );
 
-      case CHANGE_POST_BUFFER:
-        this._ChangePostBuffer(action.text);
-         break;
-
-      case CHANGE_MESSAGE_BUFFER:
-        this._ChangeMessageBuffer(action.text);
-         break;    
-    }
+    this.RerenderAll(this._state);
   },
 
   RerenderAll() {},
 };
-
-export const AddMessageActionCreator = () => ({type: ADD_MESSAGE})
-export const ChangeMessageBufferActionCreator = (text) => ({type: CHANGE_MESSAGE_BUFFER, text: text,});
-export const AddPostActionCreator = () => ({type: ADD_POST})
-export const ChangePostBufferActionCreator = (text) => ({type:CHANGE_POST_BUFFER,text: text});
-
-
 
 export default store;

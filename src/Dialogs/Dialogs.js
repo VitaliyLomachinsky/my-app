@@ -1,5 +1,5 @@
 import React from "react";
-import { AddMessageActionCreator,ChangeMessageBufferActionCreator } from "../State";
+import { AddMessageActionCreator,ChangeMessageBufferActionCreator } from "../Redux/Dialogs_reducer";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import MessageItem from "./MessageItem/MessageItem";
