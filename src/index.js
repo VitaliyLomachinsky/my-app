@@ -3,7 +3,7 @@ import reportWebVitals from "./reportWebVitals";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.js";
-import store from "./Redux/State.js";
+import store from "./Redux/redux-store.js";
 import { BrowserRouter } from "react-router-dom";
 
 let RerenderAll = (state) => {
@@ -18,8 +18,11 @@ let RerenderAll = (state) => {
   );
 };
 
-RerenderAll(store.GetState());
-store.subscribe(RerenderAll);
+RerenderAll(store.getState());
+
+store.subscribe(() => {
+  RerenderAll(store.getState());
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

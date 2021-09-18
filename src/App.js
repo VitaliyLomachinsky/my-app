@@ -8,10 +8,11 @@ import Friends from "./Friends/Friends";
 import { Route } from "react-router-dom";
 
 const App = (props) => {
+  
   return (
     <div className="Main">
       <Header />
-      <SideBar OnlineFriendsData={props.appState.OnlineFriendsData} />
+      <SideBar OnlineFriendsData={props.appState.SideBar_Data.OnlineFriendsData} />
       <div className="content">
         <Route
           path="/profile"

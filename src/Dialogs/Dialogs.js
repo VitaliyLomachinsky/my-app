@@ -8,12 +8,13 @@ import MessageItem from "./MessageItem/MessageItem";
 
 const Dialogs = (props) => {
   let submitMessage = React.createRef();
-
+ 
   let AddMessage = () => {
     props.dispatch(AddMessageActionCreator());
   };
 
   let ChangeMessage = () => {
+    debugger;
     let text = submitMessage.current.value;
     props.dispatch(ChangeMessageBufferActionCreator(text));
   };

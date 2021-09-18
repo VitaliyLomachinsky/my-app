@@ -1,11 +1,22 @@
 const ADD_POST = "AddPost";
 const CHANGE_POST_BUFFER = "ChangePostBuffer";
 
-const Profile_reducer = (state, action) => {
+const initialState = {
+  postsData: [
+    { id: 1, text: "Suup man, crazy game was be yesterday" },
+    { id: 2, text: "Hellllo, how are you/???" },
+    { id: 3, text: "Go to hell!" },
+    { id: 4, text: "Shut the fuck up!" },
+    { id: 5, text: "Sheeeeeeeeeeeeesh" },
+  ],
+
+  PostTextBuffer: "",
+};
+
+const Profile_reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       if (state.PostTextBuffer != "") {
-        debugger;
         let newPost = {
           id: state.postsData.length + 1,
           text: state.PostTextBuffer,
