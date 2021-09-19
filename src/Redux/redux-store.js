@@ -9,6 +9,7 @@ let reducers = combineReducers({
   SideBar_Data:SideBar_reducer
 })
 
+
 let store = createStore(reducers);
 
 export default store;
