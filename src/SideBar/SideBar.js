@@ -3,8 +3,9 @@ import clasess from "./SideBar.module.css";
 import OnlineFriendsList from "./OnlineFriendsList/OnlineFriendsList";
 
 const SideBar = (props) => {
-
-  let newOnlineFriendsList = props.OnlineFriendsData.onlineFriends.map(temp => <OnlineFriendsList url={temp.url}/>)
+  let newOnlineFriendsList = props.onlineFriends.map((temp) => (
+    <OnlineFriendsList url={temp.url} />
+  ));
 
   return (
     <div className={clasess.sideBar}>
@@ -47,9 +48,7 @@ const SideBar = (props) => {
         </li>
       </ul>
 
-      <div className={clasess.OnlineFriendsList}>
-        {newOnlineFriendsList}
-      </div>
+      <div className={clasess.OnlineFriendsList}>{newOnlineFriendsList}</div>
     </div>
   );
 };

@@ -1,21 +1,24 @@
 import Post from "./Post/Post";
 import classes from "./MyPost.module.css";
 import React from "react";
-import { AddPostActionCreator, ChangePostBufferActionCreator } from "../../Redux/Profile_reducer";
+import {
+  AddPostActionCreator,
+  ChangePostBufferActionCreator,
+} from "../../Redux/Profile_reducer";
 
 const MyPost = (props) => {
-  let postsDataNew = props.Profile_Data.postsData.map((post) => (
+  let postsDataNew = props.postsData.map((post) => (
     <Post content={post.text} id={post.id} />
   ));
-  let NewPost = React.createRef();
 
   let AddPost = () => {
-    props.dispatch(AddPostActionCreator());
+    props.AddPost();
   };
 
+  let NewPost = React.createRef();
   let OnChangePost = () => {
     let text = NewPost.current.value;
-    props.dispatch(ChangePostBufferActionCreator(text));
+    props.OnChangePost(text);
   };
 
   return (
@@ -27,7 +30,7 @@ const MyPost = (props) => {
           className={classes.My_posts_textarea}
           name="massage"
           onChange={OnChangePost}
-          value={props.Profile_Data.PostTextBuffer}
+          value={props.PostTextBuffer}
         ></textarea>
         <button
           className={classes.My_posts_textarea_sumbit_btn}

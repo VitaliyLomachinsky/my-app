@@ -1,32 +1,28 @@
 import React from "react";
-import { AddMessageActionCreator,ChangeMessageBufferActionCreator } from "../Redux/Dialogs_reducer";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import MessageItem from "./MessageItem/MessageItem";
 
-
-
 const Dialogs = (props) => {
   let submitMessage = React.createRef();
- 
+
   let AddMessage = () => {
-    props.dispatch(AddMessageActionCreator());
+    props.AddMessage();
   };
 
   let ChangeMessage = () => {
-    debugger;
     let text = submitMessage.current.value;
-    props.dispatch(ChangeMessageBufferActionCreator(text));
+    props.ChangeMessage(text);
   };
 
-  let DialogsDataNew = props.dialogsData.DialogsData.map((dialog) => (
+  let DialogsDataNew = props.DialogsData.map((dialog) => (
     <DialogItem
       userName={dialog.userName}
       lastTimeOnline={dialog.lastTimeOnline}
       id={dialog.id}
     />
   ));
-  let MessagesDataNew = props.dialogsData.MessagesData.map((message) => (
+  let MessagesDataNew = props.MessagesData.map((message) => (
     <MessageItem
       MessageText={message.messageText}
       MessageId={message.id}
@@ -49,7 +45,7 @@ const Dialogs = (props) => {
             <textarea
               ref={submitMessage}
               onChange={ChangeMessage}
-              value={props.dialogsData.MessageTextBuffer}
+              value={props.MessageTextBuffer}
             ></textarea>
             <button onClick={AddMessage}>Submit</button>
           </div>

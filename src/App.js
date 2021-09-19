@@ -1,36 +1,29 @@
 import "./App.css";
 import Header from "./Header/Header";
-import SideBar from "./SideBar/SideBar";
 import Profile from "./Profile/Profile";
-import Dialogs from "./Dialogs/Dialogs";
 import Settings from "./Settings/Settings";
 import Friends from "./Friends/Friends";
 import { Route } from "react-router-dom";
+import SideBarContainer from "./SideBar/SideBarContainer";
+import DialogsContainer from "./Dialogs/DialogsContainer";
 
 const App = (props) => {
-  
   return (
     <div className="Main">
       <Header />
-      <SideBar OnlineFriendsData={props.appState.SideBar_Data.OnlineFriendsData} />
+      <SideBarContainer state={props.state} />
       <div className="content">
         <Route
           path="/profile"
           render={() => (
-            <Profile
-              Profile_Data={props.appState.Profile_Data}
-              dispatch={props.dispatch}
-            />
+            <Profile state={props.state} dispatch={props.dispatch} />
           )}
         />
         <Route path="/friends" render={() => <Friends />} />
         <Route
           path="/dialogs"
           render={() => (
-            <Dialogs
-              dialogsData={props.appState.Dialogs_Messages_Data}
-              dispatch={props.dispatch}
-            />
+            <DialogsContainer state={props.state} dispatch={props.dispatch} />
           )}
         />
         <Route path="/settings" render={() => <Settings />} />
