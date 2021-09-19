@@ -3,10 +3,11 @@ import clasess from "./SideBar.module.css";
 import OnlineFriendsList from "./OnlineFriendsList/OnlineFriendsList";
 
 const SideBar = (props) => {
+ 
   let newOnlineFriendsList = props.onlineFriends.map((temp) => (
     <OnlineFriendsList url={temp.url} />
   ));
-
+  
   return (
     <div className={clasess.sideBar}>
       <ul className={clasess.bar}>

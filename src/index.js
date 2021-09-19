@@ -5,14 +5,16 @@ import ReactDOM from "react-dom";
 import App from "./App.js";
 import store from "./Redux/redux-store.js";
 import { BrowserRouter } from "react-router-dom";
+import StoreContext from "./Redux/StoreContext";
 
 let RerenderAll = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App state={state} dispatch={store.dispatch.bind(store)} />
+        <StoreContext.Provider value={store}>
+          <App />
+        </StoreContext.Provider>
       </BrowserRouter>
-      ;
     </React.StrictMode>,
     document.getElementById("root")
   );

@@ -4,24 +4,30 @@ import {
   AddPostActionCreator,
   ChangePostBufferActionCreator,
 } from "../../Redux/Profile_reducer";
+import StoreContext from "../../Redux/StoreContext";
 
-const MyPostContainer = (props) => {
-  debugger;
-  let AddPost = () => {
-    props.dispatch(AddPostActionCreator());
-  };
-
-  let OnChangePost = (text) => {
-    props.dispatch(ChangePostBufferActionCreator(text));
-  };
-
+const MyPostContainer = () => {
   return (
-    <MyPost
-      postsData={props.state.Profile_Data.postsData}
-      AddPost={AddPost}
-      OnChangePost={OnChangePost}
-      PostTextBuffer={props.state.Profile_Data.PostTextBuffer}
-    />
+    <StoreContext.Consumer>
+      {(store) => {
+        let AddPost = () => {
+          store.dispatch(AddPostActionCreator());
+        };
+
+        let OnChangePost = (text) => {
+          store.dispatch(ChangePostBufferActionCreator(text));
+        };
+
+        return (
+          <MyPost
+            postsData={store.getState().Profile_Data.postsData}
+            AddPost={AddPost}
+            OnChangePost={OnChangePost}
+            PostTextBuffer={store.getState().Profile_Data.PostTextBuffer}
+          />
+        );
+      }}
+    </StoreContext.Consumer>
   );
 };
 

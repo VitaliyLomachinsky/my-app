@@ -1,10 +1,17 @@
 import SideBar from "./SideBar";
+import StoreContext from "../Redux/StoreContext.js";
 
-const SideBarContainer = (props) => {
+const SideBarContainer = () => {
   return (
-    <SideBar
-      onlineFriends={props.state.SideBar_Data.OnlineFriendsData.onlineFriends}
-    />
+    <StoreContext.Consumer>
+      {(store) => (
+        <SideBar
+          onlineFriends={
+            store.getState().SideBar_Data.OnlineFriendsData.onlineFriends
+          }
+        />
+      )}
+    </StoreContext.Consumer>
   );
 };
 

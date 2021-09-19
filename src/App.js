@@ -11,21 +11,11 @@ const App = (props) => {
   return (
     <div className="Main">
       <Header />
-      <SideBarContainer state={props.state} />
+      <SideBarContainer />
       <div className="content">
-        <Route
-          path="/profile"
-          render={() => (
-            <Profile state={props.state} dispatch={props.dispatch} />
-          )}
-        />
+        <Route path="/profile" render={() => <Profile />} />
         <Route path="/friends" render={() => <Friends />} />
-        <Route
-          path="/dialogs"
-          render={() => (
-            <DialogsContainer state={props.state} dispatch={props.dispatch} />
-          )}
-        />
+        <Route path="/dialogs" render={() => <DialogsContainer />} />
         <Route path="/settings" render={() => <Settings />} />
       </div>
     </div>
