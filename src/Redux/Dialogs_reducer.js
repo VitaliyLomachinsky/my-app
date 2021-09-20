@@ -24,24 +24,29 @@ let initialState = {
 
 const Dialogs_reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MESSAGE:
+    case ADD_MESSAGE: {
       if (state.MessageTextBuffer != "") {
         let newMessage = {
           id: state.MessagesData.length + 1,
           messageText: state.MessageTextBuffer,
           sender: true,
         };
-        state.MessageTextBuffer = "";
-        state.MessagesData.push(newMessage);
+        let stateCopy = { ...state };
+        stateCopy.MessagesData = [...state.MessagesData];
+
+        stateCopy.MessageTextBuffer = "";
+        stateCopy.MessagesData.push(newMessage);
+        return stateCopy;
       }
-      break;
-    case CHANGE_MESSAGE_BUFFER:
-      state.MessageTextBuffer = action.text;
-      break;
+    }
+    case CHANGE_MESSAGE_BUFFER: {
+      let stateCopy = { ...state };
+      stateCopy.MessageTextBuffer = action.text;
+      return stateCopy;
+    }
     default:
       return state;
   }
-  return state;
 };
 
 export const AddMessageActionCreator = () => ({ type: ADD_MESSAGE });
