@@ -21,20 +21,20 @@ const Profile_reducer = (state = initialState, action) => {
           id: state.postsData.length + 1,
           text: state.PostTextBuffer,
         };
-
-        let stateCopy = { ...state };
-        stateCopy.postsData = [...state.postsData];
-        stateCopy.postsData.push(newPost);
-        stateCopy.PostTextBuffer = "";
-        return stateCopy;
+        return {
+          ...state,
+          postsData: [...state.postsData, newPost],
+          PostTextBuffer: "",
+        };
       }
       break;
     }
 
     case CHANGE_POST_BUFFER: {
-      let stateCopy = { ...state };
-      stateCopy.PostTextBuffer = action.text;
-      return stateCopy;
+      return {
+        ...state,
+        PostTextBuffer: action.text,
+      };
     }
 
     default:

@@ -31,18 +31,19 @@ const Dialogs_reducer = (state = initialState, action) => {
           messageText: state.MessageTextBuffer,
           sender: true,
         };
-        let stateCopy = { ...state };
-        stateCopy.MessagesData = [...state.MessagesData];
 
-        stateCopy.MessageTextBuffer = "";
-        stateCopy.MessagesData.push(newMessage);
-        return stateCopy;
+        return {
+          ...state,
+          MessagesData: [...state.MessagesData, newMessage],
+          MessageTextBuffer: "",
+        };
       }
     }
     case CHANGE_MESSAGE_BUFFER: {
-      let stateCopy = { ...state };
-      stateCopy.MessageTextBuffer = action.text;
-      return stateCopy;
+      return {
+        ...state,
+        MessageTextBuffer: action.text,
+      };
     }
     default:
       return state;
