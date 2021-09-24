@@ -1,0 +1,60 @@
+.item{
+  width: 90%;
+  margin: 0 auto;
+  background-color: #6D87D6;
+  border-radius: 5px;
+  height: 150px;
+  border: 1px solid #283a6d;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.left{
+  display: block;
+  float:left;
+  height: 100%;
+  width: 114px;
+}
+
+.left_inside{
+  margin: 0 auto;
+  height: auto;
+  width: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  
+}
+.image{
+  width: 70px;
+  height: 70px;
+  background-color:  salmon;
+  border-radius: 50%;
+  border: 2px solid brown;
+  margin: 0;
+}
+
+.follow{
+  width: 74px;
+  height: 25px;
+  margin-top: 10px;
+}
+
+.right{
+  display: inline-block;
+  padding: 10px;
+  color:white;
+}
+
+.name{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.location{
+  font-variant: small-caps;
+}
+.status{
+  font-family: cursive;
+  margin-top: 10px;
+}
