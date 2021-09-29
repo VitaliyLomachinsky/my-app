@@ -3,9 +3,9 @@ import style from "./FriendsListItem.module.css";
 const FriendsListItem = (props) => {
   let returnFollowed = () => {
     if (props.user.followed === false) {
-      return "unfolow";
+      return "unfollow";
     } else {
-      return "folow";
+      return "follow";
     }
   };
 
