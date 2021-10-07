@@ -1,46 +1,18 @@
 const SHOW_MORE = "SHOW_MORE";
 const FOLLOW_UNFOLLOW = "FOLLOW_UNFOLLOW";
+const SET_USERS = "SET_USERS";
 
 const initialState = {
-  users: [
-    {
-      id: 1,
-      followed: false,
-      fullName: "Vitaliy Lomachinsky",
-      location: {
-        city: "Kiev",
-        country: "Ukraine",
-      },
-      status: "Hello, a im nisan",
-    },
-    {
-      id: 2,
-      followed: true,
-      fullName: "Dima Sotnyk",
-      location: {
-        city: "Minsk",
-        country: "Belarus",
-      },
-      status: "C# visual basic 31",
-    },
-    {
-      id: 3,
-      followed: true,
-      fullName: "Oksana Maluh",
-      location: {
-        city: "San - Paulo",
-        country: "Egypt",
-      },
-      status: "Cool birthday",
-    },
-  ],
+  users: [],
 };
 
 const Friends_reducer = (state = initialState, action) => {
-  
   switch (action.type) {
     case SHOW_MORE: {
       return state;
+    }
+    case SET_USERS: {
+      return { ...state, users: [...action.users] };
     }
     case FOLLOW_UNFOLLOW: {
       debugger;
@@ -67,6 +39,10 @@ const Friends_reducer = (state = initialState, action) => {
 export const follow_Unfollow_AC = (userId) => ({
   type: FOLLOW_UNFOLLOW,
   userId,
+});
+export const set_Users_AC = (users) => ({
+  type: SET_USERS,
+  users,
 });
 export const show_More_AC = () => ({ type: SHOW_MORE });
 

@@ -24,14 +24,16 @@ const FriendsListItem = (props) => {
         </div>
       </div>
       <div className={style.right}>
-        <h1 className={style.name}>{props.user.fullName}</h1>
+        <h1 className={style.name}>{props.user.name}</h1>
         <div className={style.lacation}>
-          {props.user.location.country}, {props.user.location.city}
+          Kiev , Ukraine
         </div>
         <div className={style.status}>{props.user.status}</div>
       </div>
     </div>
   );
 };
+
+//{props.user.location.country}, {props.user.location.city}
 
 export default FriendsListItem;
