@@ -7,7 +7,7 @@ import React from "react";
 class Friends extends React.Component {
   componentDidMount() {
     axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .get("https://social-network.samuraijs.com/api/1.0/users?page=4&count=5")
       .then((response) => {
         this.props.set_users(response.data.items);
       });
